@@ -1,49 +1,53 @@
 import requests
-from bs4 import BeautifulSoup
 import json
+import time
 
-def fetch_time_ir(year, month):
-    url = f"https://www.time.ir/fa/event/list/0/{year}/{month}"
-    # استفاده از یک User-Agent واقعی‌تر برای دور زدن محدودیت‌ها
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
-    
+def translate_to_english(text):
+    # این یک ترفند برای ترجمه ساده با استفاده از یک API عمومی است
     try:
-        response = requests.get(url, headers=headers, timeout=15)
-        response.encoding = 'utf-8'
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        events_list = []
-        # جستجوی تمام تگ‌های li که حاوی اطلاعات روز هستند
-        items = soup.find_all('li')
-        
-        for item in items:
-            # پیدا کردن شماره روز (در سایت تایم دات آی آر در تگ span یا داخل متن است)
-            day_num_el = item.find('span')
-            if not day_num_el or not day_num_el.text.strip().isdigit():
-                continue
+        url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=fa&tl=en&dt=t&q={text}"
+        r = requests.get(url, timeout=10)
+        return r.json()[0][0][0]
+    except:
+        return text # اگر ترجمه نشد، خود متن را برگردان
+
+def fetch_and_translate(year, month):
+    events_english = []
+    
+    # ما کل روزهای ماه را چک می‌کنیم (۱ تا ۳۱)
+    for day in range(1, 32):
+        api_url = f"https://holidayapi.ir/jalali/{year}/{month}/{day}"
+        try:
+            response = requests.get(api_url, timeout=10)
+            if response.status_code == 200:
+                data = response.json()
+                is_holiday = data.get("is_holiday", False)
+                events = data.get("events", [])
+                
+                if events:
+                    # ترکیب تمام مناسبت‌های یک روز در یک رشته
+                    farsi_text = " - ".join([e["description"] for e in events])
+                    # ترجمه به انگلیسی
+                    english_text = translate_to_english(farsi_text)
+                    
+                    events_english.append({
+                        "d": day,
+                        "t": english_text,
+                        "h": is_holiday
+                    })
+                    print(f"Day {day}: Translated.")
+                    time.sleep(0.5) # کمی وقفه برای مسدود نشدن توسط گوگل
+        except Exception as e:
+            print(f"Error on day {day}: {e}")
             
-            day_text = day_num_el.text.strip()
-            # استخراج متن مناسبت
-            event_text = item.get_text(strip=True).replace(day_text, "", 1).strip()
-            
-            # تشخیص تعطیلی: چک کردن رنگ قرمز یا کلاس Holiday
-            style = item.get('style', '')
-            cl = item.get('class', [])
-            is_holiday = "eventHoliday" in cl or "color:red" in style.replace(" ", "").lower()
-            
-            if event_text:
-                events_list.append({
-                    "d": int(day_text),
-                    "t": event_text,
-                    "h": is_holiday
-                })
-            
-        return {"year": year, "month": month, "events": events_list}
-    except Exception as e:
-        return {"year": year, "month": month, "events": [], "error": str(e)}
+    return {
+        "year": year,
+        "month": month,
+        "events": events_english
+    }
 
 if __name__ == "__main__":
-    data = fetch_time_ir(1404, 10)
-    # ذخیره فایل با فرمت UTF-8 واقعی
+    # برای ماه ۱۰ (دی) سال ۱۴۰۴
+    final_data = fetch_and_translate(1404, 10)
     with open('10.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        json.dump(final_data, f, ensure_ascii=False, indent=2)
