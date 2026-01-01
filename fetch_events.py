@@ -1,24 +1,42 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import datetime
 
-def get_events():
-    # در نسخه نهایی، اینجا کدی می‌نویسیم که از Time.ir داده بگیرد
-    # فعلاً برای تست، یک ساختار نمونه می‌سازیم
-    data = {
-        "year": 1404,
-        "month": 10,
-        "events": [
-            {"d": 1, "t": "Christian New Year", "h": True},
-            {"d": 11, "t": "Birthday of Imam Ali", "h": True},
-            {"d": 19, "t": "Firefighting Day", "h": False},
-            {"d": 30, "t": "Plasco Incident Anniversary", "h": False}
-        ]
-    }
+def fetch_time_ir(year, month):
+    url = f"https://www.time.ir/fa/event/list/0/{year}/{month}"
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
     
-    with open('10.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    events_list = []
+    # پیدا کردن تمام ردیف‌های مناسبت‌ها
+    items = soup.find_all('li', class_='eventCurrentMonth')
+    
+    for item in items:
+        try:
+            # استخراج شماره روز
+            day_text = item.find('span').text.strip()
+            # استخراج متن مناسبت
+            event_text = item.contents[2].strip()
+            # تشخیص تعطیل بودن (معمولاً با رنگ قرمز در سایت مشخص می‌شود)
+            is_holiday = "eventHoliday" in item.get('class', [])
+            
+            events_list.append({
+                "d": int(day_text),
+                "t": event_text,
+                "h": is_holiday
+            })
+        except:
+            continue
+            
+    return {
+        "year": year,
+        "month": month,
+        "events": events_list
+    }
 
 if __name__ == "__main__":
-    get_events()
+    # فعلاً برای ماه ۱۰ تست می‌کنیم
+    data = fetch_time_ir(1404, 10)
+    with open('10.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
