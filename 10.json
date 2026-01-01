@@ -1,26 +1,5 @@
 {
   "year": 1404,
   "month": 10,
-  "events": [
-    {
-      "d": 1,
-      "t": "Christian New Year",
-      "h": true
-    },
-    {
-      "d": 11,
-      "t": "Birthday of Imam Ali",
-      "h": true
-    },
-    {
-      "d": 19,
-      "t": "Firefighting Day",
-      "h": false
-    },
-    {
-      "d": 30,
-      "t": "Plasco Incident Anniversary",
-      "h": false
-    }
-  ]
+  "events": []
 }
