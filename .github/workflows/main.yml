@@ -1,26 +1,28 @@
-- name: Set up Python
-        uses: actions/setup-python@v4 # نسخه را به v4 ارتقا دادیم
-        with:
-          python-version: '3.9' # اینجا اصلاح شد (python-version به جای python_size)
+name: Daily Event Fetcher
 
 on:
   schedule:
-    - cron: '0 0 * * *' # هر شب ساعت ۱۲ اجرا شود
-  workflow_dispatch: # قابلیت اجرای دستی
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python_size: '3.x'
+          python-version: '3.9'
+
       - name: Install dependencies
         run: pip install requests beautifulsoup4
+
       - name: Run script
         run: python fetch_events.py
+
       - name: Commit and push if changed
         run: |
           git config --global user.name 'github-actions'
