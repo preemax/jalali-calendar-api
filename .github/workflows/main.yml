@@ -1,4 +1,7 @@
-name: Daily Event Fetcher
+- name: Set up Python
+        uses: actions/setup-python@v4 # نسخه را به v4 ارتقا دادیم
+        with:
+          python-version: '3.9' # اینجا اصلاح شد (python-version به جای python_size)
 
 on:
   schedule:
