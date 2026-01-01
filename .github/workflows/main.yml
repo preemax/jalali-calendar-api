@@ -1,0 +1,27 @@
+name: Daily Event Fetcher
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # هر شب ساعت ۱۲ اجرا شود
+  workflow_dispatch: # قابلیت اجرای دستی
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python_size: '3.x'
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+      - name: Run script
+        run: python fetch_events.py
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Update events JSON" || exit 0
+          git push
