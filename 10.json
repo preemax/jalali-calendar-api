@@ -1,5 +1,146 @@
 {
   "year": 1404,
   "month": 10,
-  "events": []
+  "events": [
+    {
+      "d": 1,
+      "t": "Sun's birthday; ",
+      "h": false
+    },
+    {
+      "d": 2,
+      "t": "The death of Anthony Fokker, the founder of Fokker Company",
+      "h": false
+    },
+    {
+      "d": 3,
+      "t": "Martyrdom of Imam Ali al-Naqi al-Hadi (peace be upon him) - Birthday of Ahmad Mahmoud, a contemporary Iranian writer - Death of Iranian playwright Akbar Radi",
+      "h": false
+    },
+    {
+      "d": 4,
+      "t": "Christmas celebration - the birthday of Isaac Newton, the English physicist and mathematician - the death of Charlie Chaplin, the actor, director and composer, winner of the Oscar - Friendship Day",
+      "h": false
+    },
+    {
+      "d": 5,
+      "t": "Friday - Bam earthquake [1382] - Martyrdom anniversary of Ashu Zoroaster, the great man of history - Martyrdom anniversary of Ashu Zoroaster, the great man of history - Death of Iranian playwright Akbar Radi - Anniversary of Karbala operation 4 [1365]",
+      "h": true
+    },
+    {
+      "d": 6,
+      "t": "Birthday of Johannes Kepler, famous German scientist, mathematician and astronomer",
+      "h": false
+    },
+    {
+      "d": 7,
+      "t": "Zadrooz Forough Farrokhzad, the Iranian poet, passed away Susan Sontag, writer, literary theorist and political activist from America",
+      "h": false
+    },
+    {
+      "d": 8,
+      "t": "Day of Azar, the second day of Digan - the birthday of the Iranian poet Forough Farrokhzad - the death of the Swiss poet Carl Spittler, winner of the Nobel Prize for Literature in 1919 - the birthday of Ronald Coase, the British economist and writer, the winner of the Nobel Prize in Economics in 1991 - the day of commemoration of Yaqub Leith Safari (Radman Pourmahek), the first Iranian king after Islam - the day of commemoration of Yaqub Leith Safari (Radman Pourmahek), the first Iranian king after Islam",
+      "h": false
+    },
+    {
+      "d": 9,
+      "t": "Death of French writer Romain Rolland, winner of the Nobel Prize for Literature in 1915 - Birthday of French painter Francis-Andre Vincent - Execution of Azeri patriots in Tabriz by the Russian occupying forces [1290 AD] - Execution of Azeri patriots in Tabriz by the Russian occupying forces [1290 AD]",
+      "h": false
+    },
+    {
+      "d": 10,
+      "t": "Birth of Imam Muhammad Taqi (peace be upon him) - Death of French economist and mathematician Gerard Debrou, winner of the 1983 Nobel Prize in Economics - Birth of Iranian sculptor Lilith Trian, the mother of Iranian sculpture.",
+      "h": false
+    },
+    {
+      "d": 11,
+      "t": "New Year celebration",
+      "h": false
+    },
+    {
+      "d": 12,
+      "t": "Friday - Hafez day",
+      "h": true
+    },
+    {
+      "d": 13,
+      "t": "The birth of Imam Ali (peace be upon him) and Father's Day - the death of Nima Yoshij, the father of new Persian poetry - the martyrdom of Sardar Haj Qasim Soleimani [1398] - the birthday of John Ronald Roel Tolkien, the British writer and linguist, the creator of works such as The Hobbit and Lord of the Rings - the death of Jack Robbie, the assassin of Lee Harvey (the assassin of John F. Kennedy, the president of the United States of America)",
+      "h": true
+    },
+    {
+      "d": 14,
+      "t": "Louis Braille's birthday, the inventor of Braille",
+      "h": false
+    },
+    {
+      "d": 15,
+      "t": "Day of Mehr Roz, the third festival of Digan - Death of Hazrat Zainab, peace be upon her - Birthday of Shah Jahan, the fifth emperor of the Gurkan dynasty of India - Martyrdom of Mansour Sattari, one of the commanders of the Air Force of the Islamic Republic of Iran",
+      "h": false
+    },
+    {
+      "d": 16,
+      "t": "The birthday of Gibran Khalil Gibran, the famous American writer of Lebanese origin, the creator of the famous work of the Prophet - the death of Louis Braille, the inventor of Braille - the sinking of the Sanchi ship [1396]",
+      "h": false
+    },
+    {
+      "d": 17,
+      "t": "The execution of Babak Khormedin by the hand of Mutassim, the Abbasid caliph in Samarra - the death of Nikola Tesla, the inventor of the radio, physicist and engineer of Serbian American origin - the incident in which 56 Shiites were killed in Kerman",
+      "h": false
+    },
+    {
+      "d": 18,
+      "t": "British physicist and cosmologist Stephen Hawking's birthday - the death of famous Italian scientist and inventor Galileo Galilei - Ukrainian Airlines Flight 752 shot down [2018 solar]",
+      "h": false
+    },
+    {
+      "d": 19,
+      "t": "Friday - the birthday of French feminist philosopher and writer Simone de Beauvoir - the death of American economist James McGill Buchanan, winner of the Nobel Prize in Economics in 1986 - the death of Akbar Hashemi Rafsanjani [1395]",
+      "h": true
+    },
+    {
+      "d": 20,
+      "t": "The murder of Amir Kabir by the order of Naser al-Din Shah Qajar [1230 AD] - Death of Gabriela Mistral Chilean poet, teacher, diplomat and feminist, winner of the Nobel Prize for Literature in 1945",
+      "h": false
+    },
+    {
+      "d": 21,
+      "t": "American physicist Carl David Anderson, winner of the Nobel Prize in Physics in 1936, passed away",
+      "h": false
+    },
+    {
+      "d": 22,
+      "t": "Zadroz Jack London American writer - Zadroz Mohsen Hashtroudi Iranian mathematician, philosopher and poet.",
+      "h": false
+    },
+    {
+      "d": 24,
+      "t": "The birthday of Albert Schweitzer, a German physician and musician, winner of the Nobel Peace Prize in 1952 - the death of Edmund Halley, an English astronomer, physicist and meteorologist",
+      "h": false
+    },
+    {
+      "d": 25,
+      "t": "Martyrdom of Imam Musa Kazem (peace be upon him) - The British Museum in London was opened to the public, today this museum preserves more than 7 million pieces of cultural works of different eras. ",
+      "h": false
+    },
+    {
+      "d": 26,
+      "t": "Friday - the death of Arturo Toscanini, Italian composer, musician and conductor.",
+      "h": true
+    },
+    {
+      "d": 27,
+      "t": "Mission of Rasool Akram (pbuh) - Implementation of JCPOA agreement",
+      "h": true
+    },
+    {
+      "d": 28,
+      "t": "Birthday of Yoichiro Nambu, Japanese-American physicist, winner of the Nobel Prize in Physics in 2008 - Death of Rudyard Kipling, writer and novelist from England of Indian origin, winner of the Nobel Prize in Literature in 1907",
+      "h": false
+    },
+    {
+      "d": 29,
+      "t": "For the first time, the incandescent light bulb made by Thomas Edison started working in New Jersey. ",
+      "h": false
+    }
+  ]
 }
